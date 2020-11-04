@@ -39,23 +39,30 @@ If you don't have a Docker ID, follow these steps to create one. A Docker ID all
 >
 > Before creating a repository, ensure you’ve set up your Docker Hub account and have connected it to your Docker Desktop.
 
-Now let's create your first repository, and push your bulletin board image to Docker Hub.
+Now let's create your first repository and push your bulletin board image to Docker Hub.
 
-1.  Click on the Docker icon in your menu bar, and navigate to **Repositories > Create**. You'll be redirected to the **Create Repository** page on Docker Hub.
+1.  Shared images on Docker Hub must be namespaced properly to avoid confusion and use a specific naming convention.  The naming convention is:
+    `<Your Docker ID>/<Repository Name>:<tag>`
+    
+    The `<tag>` is the version of your application.  For information about semantic versioning, visit https://semver.org/.
 
-2.  Type the repository name as `bulletinboard` and click **Create** at the bottom of the page. Do not fill any other details for now.
-
-    ![make a repo](images/newrepo.png){:width="100%"}
-
-3.  You are now ready to share your image on Docker Hub, however, there's one thing you must do first: images must be *namespaced correctly* to share on Docker Hub. Specifically, you must name images like `<Your Docker ID>/<Repository Name>:<tag>`.
-
-    Make sure you’re in the `node-bulletin-board/bulletin-board-app` directory in a terminal or PowerShell then and run:
+2.  In your terminal, make sure you’re in the `node-bulletin-board/bulletin-board-app` directory and run:
 
     ```shell
     docker tag bulletinboard:1.0 <Your Docker ID>/bulletinboard:1.0
     ```
 
-4.  Finally, push your image to Docker Hub:
+3.  Open your browser and go to https://hub.docker.com/.
+
+2.  Click on the Repositories link at the top of the page to go to https://hub.docker.com/repositories.
+
+3.  Click on the Create Repository link.
+
+4.  Type the repository name as `bulletinboard` and click **Create** at the bottom of the page. Do not fill any other details for now.
+
+    ![make a repo](images/newrepo.png){:width="100%"}
+
+5.  From your terminal, push your image to Docker Hub:
 
     ```shell
     docker push <Your Docker ID>/bulletinboard:1.0
